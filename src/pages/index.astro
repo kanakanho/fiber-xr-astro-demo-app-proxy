@@ -1,0 +1,9 @@
+---
+import FiberComponent from "@/components/fiber-component/FiberComponent";
+import Metadata from "@/utils/Metadata";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout metadata={Metadata}>
+  <FiberComponent client:only="react" />
+</Layout>

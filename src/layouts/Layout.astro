@@ -1,0 +1,30 @@
+---
+import type { Metadata } from "@/utils/Metadata";
+import Head from "./Head.astro";
+interface Props {
+  metadata: Metadata;
+}
+
+const { metadata } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <Head metadata={metadata} />
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+  }
+</style>

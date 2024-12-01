@@ -1,0 +1,73 @@
+---
+import type { Metadata } from "@/utils/Metadata";
+interface Props {
+  metadata: Metadata;
+}
+
+const { metadata } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content={metadata.description} />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{metadata.title}</title>
+  <meta name="description" content={metadata.description} />
+  <meta name="application-name" content={metadata.applicationName} />
+  {metadata.authors && metadata.authors.map((author) => <meta name="author" content={author} />)}
+  {metadata.keywords && <meta name="keywords" content={metadata.keywords.join(", ")} />}
+  <meta name="category" content={metadata.category} />
+  {metadata.themeColor && <meta name="theme-color" content={metadata.themeColor} />}
+  {metadata.creater && <meta name="creator" content={metadata.creater} />}
+  {metadata.manifest && <link rel="manifest" href={metadata.manifest} />}
+  {
+    metadata.openGraph?.siteName && (
+      <meta property="og:site_name" content={metadata.openGraph.siteName} />
+    )
+  }
+  {metadata.openGraph?.title && <meta property="og:title" content={metadata.openGraph.title} />}
+  {
+    metadata.openGraph?.description && (
+      <meta property="og:description" content={metadata.openGraph.description} />
+    )
+  }
+  {metadata.openGraph?.url && <meta property="og:url" content={metadata.openGraph.url} />}
+  {metadata.openGraph?.type && <meta property="og:type" content={metadata.openGraph.type} />}
+  {metadata.openGraph?.image && <meta property="og:image" content={metadata.openGraph.image} />}
+  {
+    metadata.openGraph?.imageAlt && (
+      <meta property="og:image:alt" content={metadata.openGraph.imageAlt} />
+    )
+  }
+  {
+    metadata.openGraph?.imageWidth && (
+      <meta property="og:image:width" content={metadata.openGraph.imageWidth.toString()} />
+    )
+  }
+  {
+    metadata.openGraph?.imageHeight && (
+      <meta property="og:image:height" content={metadata.openGraph.imageHeight.toString()} />
+    )
+  }
+  {metadata.twitter?.card && <meta name="twitter:card" content={metadata.twitter.card} />}
+  {metadata.twitter?.site && <meta name="twitter:site" content={metadata.twitter.site} />}
+  {metadata.twitter?.creator && <meta name="twitter:creator" content={metadata.twitter.creator} />}
+  {
+    metadata.twitter?.description && (
+      <meta name="twitter:description" content={metadata.twitter.description} />
+    )
+  }
+  {metadata.twitter?.image && <meta name="twitter:image" content={metadata.twitter.image} />}
+  {
+    metadata.twitter?.imageWidth && (
+      <meta name="twitter:image:width" content={metadata.twitter.imageWidth.toString()} />
+    )
+  }
+  {
+    metadata.twitter?.imageHeight && (
+      <meta name="twitter:image:height" content={metadata.twitter.imageHeight.toString()} />
+    )
+  }
+</head>
