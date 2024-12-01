@@ -13,6 +13,17 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
+    serviceWorker(),
+    webmanifest({
+      name: "fiber-xr-astro-demo-app-proxy",
+      icon: "public/favicon.svg",
+      short_name: "fiber-xr-astro-demo-app-proxy",
+      description: "fiber-xr-astro-demo-app-proxy",
+      start_url: "/",
+      theme_color: "#333333",
+      background_color: "#ffffff",
+      display: "standalone",
+    }),
   ],
   markdown: {
     shikiConfig: {
